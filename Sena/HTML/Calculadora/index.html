@@ -4,16 +4,72 @@
   <meta charset="UTF-8">
   <title>Calculadora</title>
   <link rel="stylesheet" href="calculadora.css">
+  <style>
+    body {
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .calculator {
+    background: #1c1c1c;
+    border-radius: 20px;
+    padding: 20px;
+    width: 280px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  }
+  .display {
+    background: black;
+    color: white;
+    font-size: 2.5rem;
+    text-align: right;
+    padding: 20px 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  button {
+    font-size: 1.5rem;
+    padding: 20px 0;
+    border: none;
+    border-radius: 50%;
+    background: #333;
+    color: white;
+    cursor: default;
+  }
+  button.gray {
+    background: #a5a5a5;
+    color: black;
+  }
+  button.orange {
+    background: #ff9500;
+    color: white;
+  }
+  button.zero {
+    grid-column: span 2;
+    border-radius: 50px;
+  }
+  </style>
 
 </head>
 <body>
     <div class="calculator">
     <div class="display" id="display">0</div>
     <div class="buttons">
-    <button class="gray" onclick="limpiar()">AC</button>
-    <button class="gray" onclick="Cambiarsigno()">±</button>
-    <button class="gray" onclick="porciento()">%</button>
-    <button class="orange" onclick="operacion('/')">/</button>
+    <button class="gray" onclick="limpiar()">MR</button>
+    <button class="gray" onclick="Cambiarsigno()">M+</button>
+    <button class="gray" onclick="porciento()">M-</button>
+    <button class="orange" onclick="operacion('/')">MC</button>
+    <button class="gray" onclick="limpiar()">√</button>
+    <button class="gray" onclick="Cambiarsigno()">x²</button>
+    <button class="gray" onclick="porciento()">log</button>
+    <button class="orange" onclick="operacion('/')">1/x</button>
     <button onclick="agregar(7)">7</button>
     <button onclick="agregar(8)">8</button>
     <button onclick="agregar(9)">9</button>
