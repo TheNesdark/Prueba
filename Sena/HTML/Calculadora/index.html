@@ -61,8 +61,8 @@
     <div class="display" id="display">0</div>
     <div class="buttons">
     <button class="gray" onclick="limpiar()">AC</button>
-    <button class="gray" onclick="agregar('±')">±</button>
-    <button class="gray" onclick="agregar('%')">%</button>
+    <button class="gray" onclick="Cambiarsigno()">±</button>
+    <button class="gray" onclick="porciento()">%</button>
     <button class="orange" onclick="operacion('/')">/</button>
     <button onclick="agregar(7)">7</button>
     <button onclick="agregar(8)">8</button>
@@ -112,6 +112,22 @@
             pantalla.innerText = "Error";
             expresion = "";
         }
+    }
+    function Cambiarsigno(){
+      let valor = parseInt(pantalla.innerText);
+      if (!isNaN(valor)) {
+        valor *= -1;
+        pantalla.innerText = valor;
+        expresion = valor.toString();
+      }
+    }
+    function porciento(){
+      let valor = parseFloat(pantalla.innerText);
+      if (!isNaN(valor)) {
+        valor /= 100;
+        pantalla.innerText = valor;
+        expresion = valor.toString();
+      }
     }
   </script>
 </body>
