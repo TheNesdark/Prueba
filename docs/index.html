@@ -61,14 +61,18 @@
     <div class="calculator">
     <div class="display" id="display">0</div>
     <div class="buttons">
-    <button class="gray" onclick="limpiar()">MR</button>
-    <button class="gray" onclick="Cambiarsigno()">M+</button>
-    <button class="gray" onclick="porciento()">M-</button>
-    <button class="orange" onclick="operacion('/')">MC</button>
-    <button class="gray" onclick="limpiar()">√</button>
-    <button class="gray" onclick="Cambiarsigno()">x²</button>
-    <button class="gray" onclick="porciento()">log</button>
-    <button class="orange" onclick="operacion('/')">1/x</button>
+    <button class="gray" onclick="memoriaRecuperar()">MR</button>
+    <button class="gray" onclick="memoriaSuma()">M+</button>
+    <button class="gray" onclick="memoriaResta()">M-</button>
+    <button class="orange" onclick="memoriaLimpiar()">MC</button>
+    <button class="gray" onclick="raiz()">√</button>
+    <button class="gray" onclick="potencia()">x²</button>
+    <button class="gray" onclick="logaritmo()">log</button>
+    <button class="orange" onclick="elevadouno()">1/x</button>
+    <button class="gray" onclick="limpiar()">AC</button>
+    <button class="gray" onclick="Cambiarsigno()">+-</button>
+    <button class="gray" onclick="porciento()">%</button>
+    <button class="orange" onclick="operacion('/')">/</button>
     <button onclick="agregar(7)">7</button>
     <button onclick="agregar(8)">8</button>
     <button onclick="agregar(9)">9</button>
@@ -132,6 +136,81 @@
         valor /= 100;
         pantalla.innerText = valor;
         expresion = valor.toString();
+      }
+    }
+    function raiz(){
+      let valor = parseFloat(pantalla.innerText);
+      if (!isNaN(valor)) {
+        valor = Math.sqrt(valor);
+        pantalla.innerText = valor;
+        expresion = valor.toString();
+      }
+    }
+    function logaritmo(){
+      let valor = parseFloat(pantalla.innerText);
+      if (!isNaN(valor)) {
+        valor = Math.log10(valor);
+        pantalla.innerText = valor;
+        expresion = valor.toString();
+      }
+    }
+    function potencia(){
+      let valor = parseFloat(pantalla.innerText);
+      if (!isNaN(valor)) {
+        valor = Math.pow(valor, 2);
+        pantalla.innerText = valor;
+        expresion = valor.toString();
+      }
+    }
+    function elevadouno(){
+      let valor = parseFloat(pantalla.innerText);
+      if (!isNaN(valor)) {
+        valor = 1 / valor;
+        pantalla.innerText = valor;
+        expresion = valor.toString();
+      }
+    }
+    function memoria(){
+      let valor = parseFloat(pantalla.innerText);
+      if (!isNaN(valor)) {
+        localStorage.setItem('memoria', valor);
+      }
+    }
+    function memoriaSuma(){
+      let valor = parseFloat(pantalla.innerText);
+      if (!isNaN(valor)) {
+        let memoria = parseFloat(localStorage.getItem('memoria'));
+        if (!isNaN(memoria)) {
+          memoria += valor;
+          localStorage.setItem('memoria', memoria);
+        } else {
+          localStorage.setItem('memoria', valor);
+        }
+      }
+    }
+    function memoriaResta(){
+      let valor = parseFloat(pantalla.innerText);
+      if (!isNaN(valor)) {
+        let memoria = parseFloat(localStorage.getItem('memoria'));
+        if (!isNaN(memoria)) {
+          memoria -= valor;
+          localStorage.setItem('memoria', memoria);
+        } else {
+          localStorage.setItem('memoria', -valor);
+        }
+      }
+    }
+    function memoriaLimpiar(){
+      localStorage.removeItem('memoria');
+    }
+    function memoriaRecuperar(){
+      let memoria = parseFloat(localStorage.getItem('memoria'));
+      if (!isNaN(memoria)) {
+        pantalla.innerText = memoria;
+        expresion = memoria.toString();
+      } else {
+        pantalla.innerText = "0";
+        expresion = "";
       }
     }
   </script>
