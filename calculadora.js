@@ -122,3 +122,21 @@ function memoriaRecuperar(){
     expresion = "";
   }
 }
+document.addEventListener('keydown', function(event){
+  const key = event.key;
+  if (key >= '0' && key <= '9') {
+    agregar(key);
+  } else if (['+', '-', '*', '/'].includes(key)) {
+    operacion(key);
+  } else if (key === 'Enter') {
+    calcular();
+  } else if (key === 'Shift') {
+    limpiar();
+  } else if (key === '.') {
+    agregar('.');
+  } else if (key === 'Escape') {
+    memoriaLimpiar();
+  } else if (key === 'm') {
+    memoriaRecuperar();
+    }
+  });
