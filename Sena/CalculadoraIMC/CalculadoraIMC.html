@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+
+        input{
+            width: 100px;
+            padding: 5px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #Resultado {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #333;
+        }
+        
+        #tabla {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 75%;
+            margin: 0 auto;
+
+        }
+        td {
+            border: 1px solid black;
+            padding: 4px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Calculadora IMC</h1>
+    <label for="">Peso: </label>
+    <input type="number"  id="peso">
+    <br>
+    <br>
+    <label for="">Altura: </label>
+    <input type="number" id="altura">
+    <br>
+    <br>
+    <button id="calcular" onclick="calcularIMC()">Calcular</button>
+    <br>
+    <br>
+    <h1 id="Resultado"> </h1>
+    <div class="tabla">
+        <table id="tabla"  >
+            <thead>
+                <tr>
+                    <th>IMC</th>
+                    <th>Calificacion OMS</th>
+                </tr>
+            </thead>
+                <tr style="background-color: #27a5cf;">
+                    <td>Menos de 18.5</td>
+                    <td>Bajo peso</td>
+                </tr background-color>
+                <tr style="background-color: #6ec3ea;">
+                    <td>18.5 - 24.9</td>
+                    <td>Peso normal</td>
+                </tr>
+                <tr style="background-color: #34aa5b;">
+                    <td>25 - 29.9</td>
+                    <td>Sobrepeso</td>
+                </tr>
+                <tr style="background-color: yellow;">
+                    <td>30 - 34.9</td>
+                    <td>Obesidad grado 1</td>
+                </tr>
+                <tr style="background-color: #f6c331;">
+                    <td>35 - 39.9</td>
+                    <td>Obesidad grado 2</td>
+                </tr>
+                <tr style="background-color: red;">
+                    <td>40 o más</td>
+                    <td>Obesidad grado 3</td>
+                </tr>
+
+        </table>
+    </div>
+
+    <script>
+        function calcularIMC() {
+            var peso = document.getElementById("peso").value;
+            var altura = document.getElementById("altura").value;
+            var resultado = document.getElementById("Resultado");
+            var imc = peso / (altura * altura);
+
+            if (peso && altura) { 
+                if (imc < 18.5) {
+                    resultado.style.color = "#27a5cf";
+                    estado = ", Usted tiene bajo peso, coma mas";
+                    resultado.innerHTML = "Su IMC es: " + imc.toFixed(2) + estado;
+                } else if (imc >= 18.5 && imc < 24.9) {
+                    resultado.style.color = "#6ec3ea";
+                    estado = ", Su peso es normal, siga así";
+                    resultado.innerHTML = "Su IMC es: " + imc.toFixed(2) + estado;
+                } else if (imc >= 25 && imc < 29.9) {
+                    resultado.style.color = "#34aa5b";
+                    estado = ", Usted esta gordito, salga a la calle";
+                    resultado.innerHTML = "Su IMC es: " + imc.toFixed(2) + estado;
+                } else if (imc >= 30 && imc < 34.9) {
+                    resultado.style.color = "yellow";
+                    estado = ", Su peso es alto, haga ejercicio";
+                    resultado.innerHTML = "Su IMC es: " + imc.toFixed(2) + estado;
+                } else if (imc >= 35 && imc < 39.9) {
+                    resultado.style.color = "#f6c331";
+                    estado = ", Su peso es muy alto, deje las empanadas y chorizos";
+                    resultado.innerHTML = "Su IMC es: " + imc.toFixed(2) + estado;
+                } else if (imc >= 40) {
+                    resultado.style.color = "red";
+                    estado = ", Su peso es extremadamente alto, que Dios lo ayude";
+                    resultado.innerHTML = "Su IMC es: " + imc.toFixed(2) + estado;
+                }
+            } else {
+                alert("Por favor, ingrese su peso y altura.");
+            }
+
+        }
+    </script>
+</body>
+</html>

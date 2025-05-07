@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+        label {
+            display: block;
+            margin: 10px 0;
+            font-size: 16px;
+            color: #333;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        input[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        input {
+            width: 100px;
+            padding: 5px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #resultado {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="">
+        <h1>Cuestionario</h1>
+        <p id="p1">1. ¿Qué significa HTML?</p>
+        <label for=""><input type="radio" name="p1" value="0"> Hyperlinks and Text Markup Language</label><br>
+        <label for=""><input type="radio" name="p1" value="1"> HyperText Markup Language</label><br>
+        <label for=""><input type="radio" name="p1" value="0"> Home Tool Markup Language</label><br>
+        <label for=""><input type="radio" name="p1" value="0"> Ninguna de las anteriores</label><br>
+        <p id="p2">2. ¿Qué etiqueta se usa para crear un enlace en HTML?</p>
+        <label for=""><input type="radio" name="p2" value="0"> &lt;link&gt;</label><br>
+        <label for=""><input type="radio" name="p2" value="0"> &lt;href&gt;</label><br>
+        <label for=""><input type="radio" name="p2" value="0"> &lt;url&gt;</label><br>
+        <label for=""><input type="radio" name="p2" value="1"> &lt;a&gt;</label><br>
+        <p id="p3">3. ¿Qué significa CSS?</p>
+        <label for=""><input type="radio" name="p3" value="0"> Computer Style Sheets</label><br>
+        <label for=""><input type="radio" name="p3" value="0"> Creative Style Sheets</label><br>
+        <label for=""><input type="radio" name="p3" value="1"> Cascading Style Sheets</label><br>
+        <label for=""><input type="radio" name="p3" value="0"> Ninguna de las anteriores</label><br>
+        <p id="p4">4. ¿Qué propiedad de CSS se usa para cambiar el color de fondo?</p>
+        <label for=""><input type="radio" name="p4" value="1"> background-color</label><br>
+        <label for=""><input type="radio" name="p4" value="0"> color</label><br>
+        <label for=""><input type="radio" name="p4" value="0"> bg-color</label><br>
+        <label for=""><input type="radio" name="p4" value="0"> Ninguna de las anteriores</label><br>
+        <p id="p5">5. ¿Qué lenguaje se usa para agregar interactividad a una página web?</p>
+        <label for=""><input type="radio" name="p5" value="0"> HTML</label><br>
+        <label for=""><input type="radio" name="p5" value="1"> JavaScript</label><br>
+        <label for=""><input type="radio" name="p5" value="0"> CSS</label><br>
+        <label for=""><input type="radio" name="p5" value="0"> Ninguna de las anteriores</label><br>
+        <p id="p6">6. ¿Qué método de JavaScript se usa para seleccionar un elemento por su ID?</p>
+        <label for=""><input type="radio" name="p6" value="0"> querySelector</label><br>
+        <label for=""><input type="radio" name="p6" value="0"> getElementsByClassName</label><br>
+        <label for=""><input type="radio" name="p6" value="1"> getElementById</label><br>
+        <label for=""><input type="radio" name="p6" value="0"> Ninguna de las anteriores</label><br>
+        <p id="p7">7. ¿Qué etiqueta HTML se usa para incluir JavaScript en una página?</p>
+        <label for=""><input type="radio" name="p7" value="0"> &lt;js&gt;</label><br>
+        <label for=""><input type="radio" name="p7" value="1"> &lt;script&gt;</label><br>
+        <label for=""><input type="radio" name="p7" value="0"> &lt;javascript&gt;</label><br>
+        <label for=""><input type="radio" name="p7" value="0"> Ninguna de las anteriores</label><br>
+        <p id="p8">8. ¿Qué significa DOM en JavaScript?</p>
+        <label for=""><input type="radio" name="p8" value="1"> Document Object Model</label><br>
+        <label for=""><input type="radio" name="p8" value="0"> Data Object Model</label><br>
+        <label for=""><input type="radio" name="p8" value="0"> Ninguna de las anteriores</label><br>
+        <p id="p9">9. ¿Qué atributo HTML se usa para especificar una hoja de estilo externa?</p>
+        <label for=""><input type="radio" name="p9" value="0"> src</label><br>
+        <label for=""><input type="radio" name="p9" value="0"> href</label><br>
+        <label for=""><input type="radio" name="p9" value="1"> link</label><br>
+        <label for=""><input type="radio" name="p9" value="0"> Ninguna de las anteriores</label><br>
+        <p id="p10">10. ¿Qué significa API?</p>
+        <label for=""><input type="radio" name="p10" value="0"> Application Programming Inteligence</label><br>
+        <label for=""><input type="radio" name="p10" value="1"> Application Programming Interface</label><br>
+        <label for=""><input type="radio" name="p10" value="0"> Advanced Programming Interface</label><br>
+        <label for=""><input type="radio" name="p10" value="0"> Ninguna de las anteriores</label><br>
+        <br>
+        <input type="button" value="Calcular" onclick="calcular()">
+        <p id="resultado"></p>
+    </form>
+    <script>
+        function calcular(){
+            let total = 0;
+            for (let i = 1; i <= 10; i++) {
+                let pregunta = document.querySelector(`input[name="p${i}"]:checked`);
+                let valor = parseInt(pregunta ? pregunta.value : 0);
+                switch(valor) {
+                    case 0:
+                        total += 0;
+                        document.getElementById(`p${i}`).style.color = "red";
+                        break;
+                    case 1:
+                        total += 1;
+                        document.getElementsByName(`input${i}`).style.color = "green";
+                        break;
+                }
+    
+            }
+            document.getElementById("resultado").innerText = `Total: ${total}`;
+        }
+    </script>
+</body>
+</html>
