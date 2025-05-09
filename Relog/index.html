@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relog</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #282c34;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+        #Relog {
+            font-size: 48px;
+            color: #61dafb;
+        }
+        #Relog:hover {
+            color: #21a1f1;
+            cursor: pointer;
+        }
+        #Relog:active {
+            color: #61dafb;
+        }
+        #Relog:focus {
+            outline: none;
+        }
+        #Relog:focus-visible {
+            outline: 2px solid #61dafb;
+            outline-offset: 2px;
+        }
+        #Relog:focus:not(:focus-visible) {
+            outline: none;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 id="Relog"></h1>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours())
+            const minutes = String(now.getMinutes())
+            const seconds = String(now.getSeconds())
+            document.getElementById('Relog').textContent = `${hours}:${minutes}:${seconds}`;
+             setInterval(updateClock, 5);
+        }
+
+
+        updateClock(); 
+    </script>
+</body>
+</html>
