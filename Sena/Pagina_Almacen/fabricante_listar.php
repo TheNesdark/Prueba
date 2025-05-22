@@ -8,20 +8,20 @@ $resultado = mysqli_query($conn, "SELECT * FROM fabricante");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Fabricantes</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
+    
     <div class="container mt-5">
         <h2 class="mb-4">Lista de Fabricantes</h2>
         <a href="fabricante_nuevo.php" class="btn btn-primary mb-3">Nuevo Fabricante</a>
         <div class="table-responsive">
             <table class="table table-bordered table-hover">
                 <thead class="table-light">
-                    <tr>
-                        <th>Código</th>
-                        <th>Nombre</th>
-                        <th>Acciones</th>
+                    <tr class="text-center">
+                        <th class ="col-1">Código</th>
+                        <th class ="col-6">Nombre</th>
+                        <th class ="col-1">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,7 +31,27 @@ $resultado = mysqli_query($conn, "SELECT * FROM fabricante");
                         <td><?= $row['nombre'] ?></td>
                         <td>
                             <a href="fabricante_modificar.php?codigo=<?= $row['codigo'] ?>" class="btn btn-sm btn-warning">Editar</a>
-                            <a href="fabricante_eliminar.php?codigo=<?= $row['codigo'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Estas seguro de querer eliminar <?= $row['nombre'] ?>')">Eliminar</a>
+                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#eliminarModal<?= $row['codigo'] ?>">
+                                Eliminar
+                            </button>
+
+                            <div class="modal fade" id="eliminarModal<?= $row['codigo'] ?>" tabindex="-1" aria-labelledby="eliminarModalLabel<?= $row['codigo'] ?>" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="eliminarModalLabel<?= $row['codigo'] ?>">Confirmar Eliminación</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    ¿Estás seguro de querer eliminar <strong><?= htmlspecialchars($row['nombre']) ?></strong>?
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                    <a href="fabricante_eliminar.php?codigo=<?= $row['codigo'] ?>" class="btn btn-danger">Eliminar</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                         </td>
                     </tr>
                     <?php } ?>
@@ -39,7 +59,6 @@ $resultado = mysqli_query($conn, "SELECT * FROM fabricante");
             </table>
         </div>
     </div>
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
