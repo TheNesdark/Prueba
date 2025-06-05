@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['usuario'])) {
+    header("Location: ../login.php");
+    exit();
+}
+
 include "../db.php";
 $resultado = mysqli_query($conn, "SELECT * FROM usuario");
 ?>
@@ -11,7 +17,23 @@ $resultado = mysqli_query($conn, "SELECT * FROM usuario");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
-    
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="../index.php">Almacén</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="../productos/productos_listar.php">Productos</a></li>
+        <li class="nav-item"><a class="nav-link" href="../Fabricante/fabricante_listar.php">Fabricantes</a></li>
+        <li class="nav-item"><a class="nav-link active" href="usuario_listar.php">Usuarios</a></li>
+      </ul>
+      <span class="navbar-text me-3"><?= htmlspecialchars($_SESSION['usuario']) ?></span>
+      <a href="../logout.php" class="btn btn-outline-light btn-sm">Cerrar sesión</a>
+    </div>
+  </div>
+</nav>
     <div class="container mt-5">
         <h2 class="mb-4">Lista de Usuarios</h2>
         <a href="usuario_nuevo.php" class="btn btn-primary mb-3">Nuevo Usuario</a>

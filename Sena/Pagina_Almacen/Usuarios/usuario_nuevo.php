@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['usuario'])) {
+    header("Location: ../login.php");
+    exit();
+}
+
 include "../db.php";
 if (isset($_POST['nombre'])) {
     $usuario = $_POST['usuario'];
